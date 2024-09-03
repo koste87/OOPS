@@ -23,7 +23,7 @@ class Category:
     category_count = 0
     product_count = 0
 ```
-В классе есть приватный атрибут *products*
+В классе есть приватный атрибут *products* и методы __init __, __str __, add_product и middle_price 
 
 2. *base_product.py*. В модуле описан абстрактный класс BaseProduct
 ```
@@ -46,7 +46,7 @@ class Product:
     __price: float
     quantity: int
 ```
-В классе есть приватный атрибут *price*
+В классе есть приватный атрибут *price* и методы __init __, __str __, __add __, new_product
 
 Для каждого класса прописан метод __str __ для строкового отображения информации в определённом формате:
 ```

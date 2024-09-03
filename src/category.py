@@ -41,3 +41,12 @@ class Category:
             Category.product_count += 1
         else:
             raise TypeError
+
+    def middle_price(self):
+        """Подсчитывает средний ценник всех товаров"""
+        try:
+            avg_price = sum([product.price for product in self.__products]) / len(self.__products)
+        except ZeroDivisionError:
+            avg_price = 0
+
+        return avg_price

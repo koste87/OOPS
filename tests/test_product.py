@@ -1,3 +1,5 @@
+import pytest
+
 from src.product import Product
 
 
@@ -40,6 +42,11 @@ def test_str_product(product):
     assert str(product) == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
 
 
-def test_add_products(product, product_2, product_3):
+def test_add_products(product, product_2):
     assert product + product_2 == 2_580_000.0
-    assert product + product_3 == 900_000.0
+
+
+def test_product_zero_quantity():
+    with pytest.raises(ValueError):
+        Product(name="Nokia", description="Yellow", price=90000.0, quantity=0)
+        Product(name="Nokia", description="Yellow", price=90000.0, quantity=-10)

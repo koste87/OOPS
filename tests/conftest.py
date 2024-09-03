@@ -18,9 +18,9 @@ def product_2():
     return Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8)
 
 
-@pytest.fixture
-def product_3():
-    return Product(name="Nokia", description="Yellow", price=90000.0, quantity=0)
+# @pytest.fixture
+# def product_3():
+#     return Product(name="Nokia", description="Yellow", price=90000.0, quantity=0)
 
 
 @pytest.fixture
