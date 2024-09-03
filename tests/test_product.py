@@ -1,5 +1,3 @@
-import pytest
-
 from src.product import Product
 
 
@@ -26,7 +24,7 @@ def test_price_property(product):
 def test_price_setter(capsys, product):
     product.price = 0
     message = capsys.readouterr()
-    assert message.out.split("\n")[-2] == "Цена не должна быть нулевая или отрицательная"
+    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
     assert product.price == 180000.0
 
     product.price = -99999.0
@@ -42,11 +40,6 @@ def test_str_product(product):
     assert str(product) == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
 
 
-def test_add_products(product, product_2):
+def test_add_products(product, product_2, product_3):
     assert product + product_2 == 2_580_000.0
-
-
-def test_product_zero_quantity():
-    with pytest.raises(ValueError):
-        Product(name="Nokia", description="Yellow", price=90000.0, quantity=0)
-        Product(name="Nokia", description="Yellow", price=90000.0, quantity=-10)
+    assert product + product_3 == 900_000.0
